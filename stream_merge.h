@@ -17,21 +17,7 @@ typedef ap_uint<24> PIXEL;
 
 void stream_merge(AXI_STREAM& st_input0,
                   AXI_STREAM& st_input1,
-                  AXI_STREAM& st_output);
-
-template<typename IMG_T, typename SCALAR_T, typename PIXEL_T>
-  void stream2channel(
-                      IMG_T& img_in0,
-                      IMG_T& img_in1,
-                      hls::stream<PIXEL_T> &ch_out0,
-                      hls::stream<PIXEL_T> &ch_out1,
-                      int rows, int cols);
-
-template<typename IMG_T, typename SCALAR_T, typename PIXEL_T>
-  void channel_merge(
-                     hls::stream<PIXEL_T> &ch_in0,
-                     hls::stream<PIXEL_T> &ch_in1,
-                     IMG_T& img_out,
-                     int rows, int cols);
+                  AXI_STREAM& st_output,
+                  int rows, int cols);
 
 #endif
