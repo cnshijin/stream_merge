@@ -3,14 +3,13 @@
 void stream_merge(AXI_STREAM& st_input0, AXI_STREAM& st_input1, AXI_STREAM& st_output,
                   int rows, int cols)
 {
+#pragma HLS DATAFLOW
 #pragma HLS INTERFACE axis port=st_input0
 #pragma HLS INTERFACE axis port=st_input1
 #pragma HLS INTERFACE axis port=st_output
 #pragma HLS INTERFACE s_axilite port=rows bundle=CONTROL_BUS offset=0x14
 #pragma HLS INTERFACE s_axilite port=cols bundle=CONTROL_BUS offset=0x1C
 #pragma HLS INTERFACE s_axilite port=return bundle=CONTROL_BUS
-#pragma HLS INTERFACE ap_stable port=rows
-#pragma HLS INTERFACE ap_stable port=cols
 
   IMAGE img_0(rows, cols);
   IMAGE img_1(rows, cols);
